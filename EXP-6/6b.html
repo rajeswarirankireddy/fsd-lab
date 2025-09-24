@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Different Ways to Display Output - Modified</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  #output {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff3e0;
+    border: 2px dashed #ff9800;
+    color: #bf360c;
+    font-weight: bold;
+    border-radius: 6px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Explore Different Output Methods in JavaScript</h1>
+
+<button onclick="showAlert()">1. Alert Box</button>
+<button onclick="showConsole()">2. Console Log</button>
+<button onclick="showInPage()">3. Display in Page</button>
+<button onclick="showDocumentWrite()">4. Document Write</button>
+
+<div id="output"></div>
+
+<script>
+  function showAlert() {
+    alert("Heads up! This alert box uses a new message.");
+  }
+
+  function showConsole() {
+    console.log("New console message: Debugging is fun!");
+    alert("Open the console (F12) to see a fresh console.log message.");
+  }
+
+  function showInPage() {
+    document.getElementById("output").innerHTML = "<em style='color:#e65100;'>This text is updated inside the page with <u>italic</u> and colored styling!</em>";
+  }
+
+  function showDocumentWrite() {
+    document.write(`
+      <div style="font-family: Verdana, sans-serif; text-align:center; margin-top: 50px;">
+        <h2 style="color:#f57c00;">Document Write Output</h2>
+        <p style="font-size: 1.1rem;">Warning: This method replaces the entire page content!</p>
+        <p>Enjoy experimenting with JavaScript output methods!</p>
+      </div>
+    `);
+  }
+</script>
+
+</body>
+</html>

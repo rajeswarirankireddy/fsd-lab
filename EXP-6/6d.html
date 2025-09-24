@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Voter Eligibility Checker</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 30px;
+    background-color: #f0f8ff;
+    text-align: center;
+  }
+
+  table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 60%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  th, td {
+    border: 2px solid #007BFF;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+  }
+
+  th {
+    background-color: #007BFF;
+    color: white;
+  }
+
+  td.status-eligible {
+    color: green;
+    font-weight: bold;
+  }
+
+  td.status-not-eligible {
+    color: red;
+    font-weight: bold;
+  }
+
+  #start-btn {
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+  #start-btn:hover {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+
+<h1>Voter Eligibility Checker</h1>
+
+<button id="start-btn" onclick="getVoterInfo()">Enter Your Details</button>
+
+<div id="result"></div>
+
+<script>
+  function getVoterInfo() {
+    let name = prompt("Please enter your name:");
+    if (!name || name.trim() === "") {
+      alert("Name cannot be empty.");
+      return;
+    }
+    name = name.trim();
+
+    let ageInput = prompt("Please enter your age:");
+    let age = parseInt(ageInput, 10);
+
+    if (isNaN(age) || age <= 0) {
+      alert("Please enter a valid age.");
+      return;
+    }
+
+    let canVote = age >= 18;
+
+    let resultDiv = document.getElementById('result');
+
+    let tableHTML = `
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Eligible to Vote?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>${name}</td>
+            <td>${age}</td>
+            <td class="${canVote ? 'status-eligible' : 'status-not-eligible'}">
+              ${canVote ? "Yes, You can vote" : "No, You cannot vote"}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    `;
+
+    resultDiv.innerHTML = tableHTML;
+  }
+</script>
+
+</body>
+</html>

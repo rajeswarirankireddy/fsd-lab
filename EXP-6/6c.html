@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Different Ways to Take User Input</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  .section {
+    margin-bottom: 30px;
+  }
+  label {
+    font-weight: bold;
+  }
+  input[type="text"], select {
+    padding: 5px;
+    margin-left: 10px;
+  }
+  button {
+    margin-left: 10px;
+  }
+  #result {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e8f0fe;
+    border: 1px solid #4285f4;
+    color: #1967d2;
+  }
+</style>
+</head>
+<body>
+
+<h1>Different Ways to Take User Input</h1>
+
+<!-- 1. Prompt Box -->
+<div class="section">
+  <button onclick="getInputPrompt()">1. Input using Prompt Box</button>
+</div>
+
+<!-- 2. Text Input Field -->
+<div class="section">
+  <label for="textInput">2. Input using Text Box:</label>
+  <input type="text" id="textInput" placeholder="Type something here..." />
+  <button onclick="getInputTextBox()">Submit</button>
+</div>
+
+<!-- 3. Form Submission -->
+<div class="section">
+  <form id="myForm" onsubmit="return getInputForm(event)">
+    <label for="formInput">3. Input using Form:</label>
+    <input type="text" id="formInput" placeholder="Enter your name" required />
+    <button type="submit">Submit Form</button>
+  </form>
+</div>
+
+<!-- 4. Dropdown Select -->
+<div class="section">
+  <label for="dropdown">4. Select an option:</label>
+  <select id="dropdown" onchange="getInputSelect()">
+    <option value="">--Choose--</option>
+    <option value="Apple">Apple</option>
+    <option value="Banana">Banana</option>
+    <option value="Cherry">Cherry</option>
+  </select>
+</div>
+
+<!-- Output area -->
+<div id="result"></div>
+
+<script>
+  function getInputPrompt() {
+    const name = prompt("Please enter your name:");
+    if (name) {
+      document.getElementById('result').innerText = `You entered (prompt): ${name}`;
+    } else {
+      document.getElementById('result').innerText = 'Prompt cancelled or empty input.';
+    }
+  }
+
+  function getInputTextBox() {
+    const input = document.getElementById('textInput').value.trim();
+    if(input) {
+      document.getElementById('result').innerText = `You entered (text box): ${input}`;
+    } else {
+      alert('Please type something in the text box.');
+    }
+  }
+
+  function getInputForm(event) {
+    event.preventDefault(); // prevent form submission refresh
+    const formInput = document.getElementById('formInput').value.trim();
+    document.getElementById('result').innerText = `You entered (form): ${formInput}`;
+    return false;
+  }
+
+  function getInputSelect() {
+    const selected = document.getElementById('dropdown').value;
+    if(selected) {
+      document.getElementById('result').innerText = `You selected: ${selected}`;
+    } else {
+      document.getElementById('result').innerText = '';
+    }
+  }
+</script>
+
+</body>
+</html>
