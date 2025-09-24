@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>CSS Box Model Visual Explanation - Different Output</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fffde7; /* light yellow */
+    color: #2e3a2f;
+    padding: 40px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 900px;
+    margin-bottom: 50px;
+  }
+
+  /* Box parts as separate columns */
+  .box-part {
+    flex: 1;
+    margin: 0 10px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .content-box {
+    background-color: #689f38; /* dark green */
+    color: white;
+    padding: 25px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 15px;
+  }
+
+  /* Individual styles for each part */
+  .margin-box {
+    background-color: #f9fbe7; /* light lime */
+    border: 3px dashed #c0ca33; /* lime dashed border */
+  }
+
+  .border-box {
+    background-color: #dcedc8; /* light green */
+    border: 5px solid #8bc34a; /* solid green border */
+  }
+
+  .padding-box {
+    background-color: #e6ee9c; /* lighter yellow-green */
+    border: 3px dashed #cddc39; /* yellow dashed border */
+  }
+
+  .content-box-label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+  }
+
+  /* Labels */
+  .label {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  /* Explanation Section */
+  .explanation {
+    max-width: 900px;
+    background: #f1f8e9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(105, 121, 85, 0.3);
+  }
+
+  .explanation h2 {
+    color: #558b2f;
+    margin-top: 0;
+  }
+
+  .explanation ul {
+    margin-top: 0;
+    list-style-type: square;
+    padding-left: 20px;
+  }
+
+  .explanation li {
+    margin-bottom: 10px;
+  }
+
+  .highlight {
+    color: #689f38;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="box-part margin-box">
+    <div class="label">Margin</div>
+    <p style="font-size: 0.9rem;">Outer space separating this box from others.</p>
+  </div>
+
+  <div class="box-part border-box">
+    <div class="label">Border</div>
+    <p style="font-size: 0.9rem;">The visible outline around padding and content.</p>
+  </div>
+
+  <div class="box-part padding-box">
+    <div class="label">Padding</div>
+    <p style="font-size: 0.9rem;">Space inside border, outside content.</p>
+
+    <div class="content-box">
+      Content Area
+    </div>
+  </div>
+</div>
+
+<!-- Explanation Content -->
+<div class="explanation">
+  <h2>CSS Box Model Overview</h2>
+  <p>The <span class="highlight">CSS Box Model</span> defines how elements are structured and spaced on the web. Each element is a rectangular box consisting of:</p>
+  
+  <ul>
+    <li><span class="highlight">Margin:</span> Transparent outer space that separates boxes.</li>
+    <li><span class="highlight">Border:</span> The visible edge surrounding padding and content.</li>
+    <li><span class="highlight">Padding:</span> Space between border and content, adds breathing room.</li>
+    <li><span class="highlight">Content:</span> The inner box holding text, images, or other media.</li>
+  </ul>
+
+  <h3>Why Understanding the Box Model Matters</h3>
+  <p>Proper knowledge of the box model helps control spacing, avoid overlaps, and create responsive, visually balanced web layouts across devices.</p>
+</div>
+
+</body>
+</html>
