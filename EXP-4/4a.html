@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>CSS Selector Types with Headings</title>
+
+<style>
+  /* Simple selectors */
+  /* Element selector */
+  h3 {
+    color: navy;
+  }
+
+  /* ID selector */
+  #unique {
+    background-color: lightgray;
+    padding: 5px;
+  }
+
+  /* Class selector */
+  .special {
+    font-weight: bold;
+    color: darkgreen;
+  }
+
+  /* Group selector */
+  h4, p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  /* Universal selector */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Combinator selectors */
+  /* Descendant */
+  section div p {
+    font-style: oblique;
+  }
+
+  /* Child */
+  ul > li {
+    color: purple;
+  }
+
+  /* Adjacent sibling */
+  h4 + p {
+    border: 1px solid black;
+    padding: 5px;
+  }
+
+  /* General sibling */
+  h4 ~ p {
+    background-color: #eef;
+  }
+
+  /* Pseudo-class selectors */
+  /* Hover */
+  button:hover {
+    background-color: orange;
+    cursor: pointer;
+  }
+
+  /* First-child */
+  li:first-child {
+    font-size: 18px;
+  }
+
+  /* Pseudo-element selectors */
+  /* Before */
+  h3::before {
+    content: "👉 ";
+  }
+
+  /* First-letter */
+  p::first-letter {
+    font-size: 150%;
+    color: crimson;
+  }
+
+  /* Attribute selectors */
+  /* Input with placeholder attribute */
+  input[placeholder] {
+    border: 2px solid teal;
+    padding: 6px;
+  }
+
+  /* Link with href starting with https */
+  a[href^="https"] {
+    color: darkred;
+    font-weight: bold;
+  }
+
+</style>
+</head>
+<body>
+
+  <h2>1. Simple Selectors</h2>
+  <h3>Element Selector (h3)</h3>
+  <p>This paragraph is styled by group selector and element selector.</p>
+  <p id="unique">This paragraph uses an ID selector (#unique).</p>
+  <p class="special">This paragraph uses a class selector (.special).</p>
+
+  <h2>2. Combinator Selectors</h2>
+  <section>
+    <div>
+      <p>This paragraph is styled by descendant selector (section div p).</p>
+    </div>
+  </section>
+  <ul>
+    <li>First list item (first child)</li>
+    <li>Second list item (child selector styling)</li>
+  </ul>
+  <h4>Heading 4</h4>
+  <p>This paragraph is an adjacent sibling to h4 (h4 + p).</p>
+  <p>This paragraph is a general sibling to h4 (h4 ~ p).</p>
+
+  <h2>3. Pseudo-class Selectors</h2>
+  <button>Hover over me!</button>
+
+  <h2>4. Pseudo-element Selectors</h2>
+  <h3>Pseudo-element ::before</h3>
+  <p>Pseudo-element ::first-letter styled paragraph.</p>
+
+  <h2>5. Attribute Selectors</h2>
+  <input type="text" placeholder="Input with placeholder attribute" />
+  <input type="password" placeholder="Password input, same style" />
+  <br /><br />
+  <a href="https://openai.com">Secure link with href^="https"</a><br />
+  <a href="http://example.com">Normal link without special style</a>
+
+</body>
+</html>
+
