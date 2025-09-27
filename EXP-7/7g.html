@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Date Object Example</title>
+</head>
+<body>
+
+  <h2>Date Object Demo</h2>
+
+  <button onclick="showDateInfo()">Show Date & Time Info</button>
+
+  <p id="dateInfo"></p>
+
+  <script>
+    function showDateInfo() {
+      const now = new Date();
+
+      // Get individual parts of the date
+      const year = now.getFullYear();
+      const month = now.getMonth() + 1; // Months are 0-based
+      const date = now.getDate();
+      const day = now.getDay(); // 0 = Sunday, 1 = Monday, ...
+      const hours = now.getHours();
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+
+      // Format day name
+      const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      const dayName = days[day];
+
+      // Format date string
+      const formattedDate = `${year}-${month.toString().padStart(2,'0')}-${date.toString().padStart(2,'0')}`;
+      const formattedTime = `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+
+      // Display all info
+      document.getElementById("dateInfo").innerHTML = `
+        <strong>Current Date:</strong> ${formattedDate} <br>
+        <strong>Current Time:</strong> ${formattedTime} <br>
+        <strong>Day of the Week:</strong> ${dayName} <br>
+        <strong>Timestamp (milliseconds since Jan 1, 1970):</strong> ${now.getTime()}
+      `;
+    }
+  </script>
+
+</body>
+</html>

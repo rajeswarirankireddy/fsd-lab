@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Window Object Example</title>
+</head>
+<body>
+
+  <h2>Window Object Demo</h2>
+  <button onclick="showWindowInfo()">Show Window Info</button>
+  <p id="info"></p>
+
+  <script>
+    function showWindowInfo() {
+      // Accessing some window properties
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      const url = window.location.href;
+      const userAgent = window.navigator.userAgent;
+
+      // Using window methods
+      alert("This alert is shown using window.alert()");
+
+      // Open a new window (commented out to avoid pop-ups)
+      // window.open("https://www.example.com", "_blank", "width=400,height=400");
+
+      // Writing information to the page
+      document.getElementById("info").innerHTML = `
+        <strong>Window Width:</strong> ${width}px <br>
+        <strong>Window Height:</strong> ${height}px <br>
+        <strong>Current URL:</strong> ${url} <br>
+        <strong>User Agent:</strong> ${userAgent}
+      `;
+    }
+  </script>
+
+</body>
+</html>

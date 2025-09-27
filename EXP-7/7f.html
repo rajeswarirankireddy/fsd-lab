@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Regex Object Example</title>
+</head>
+<body>
+
+  <h2>Regex Object Demo</h2>
+
+  <input type="text" id="inputText" placeholder="Enter an email address" size="30">
+  <button onclick="testRegex()">Test Email</button>
+
+  <p id="result"></p>
+
+  <script>
+    function testRegex() {
+      const input = document.getElementById("inputText").value;
+
+      // Define a regex pattern for a simple email validation
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+      // Test if input matches pattern
+      const isValid = emailPattern.test(input);
+
+      // Use regex properties
+      const source = emailPattern.source;
+      const flags = emailPattern.flags;
+
+      // Use exec() to extract matched parts (if any)
+      const execResult = emailPattern.exec(input);
+
+      let output = `<strong>Regex Pattern:</strong> /${source}/${flags} <br>`;
+      output += `<strong>Input:</strong> ${input} <br>`;
+      output += `<strong>Is Valid Email?:</strong> ${isValid} <br>`;
+
+      if (execResult) {
+        output += `<strong>Matched Text:</strong> ${execResult[0]} <br>`;
+        output += `<strong>Match Index:</strong> ${execResult.index} <br>`;
+      } else {
+        output += "No match found.";
+      }
+
+      document.getElementById("result").innerHTML = output;
+    }
+  </script>
+
+</body>
+</html>

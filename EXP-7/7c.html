@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Array Object Example</title>
+</head>
+<body>
+
+  <h2>Array Methods Demo</h2>
+
+  <button onclick="manipulateArray()">Manipulate Array</button>
+
+  <p id="arrayContent"></p>
+  <p id="arrayLength"></p>
+  <p id="arraySorted"></p>
+  <p id="arrayJoined"></p>
+
+  <script>
+    function manipulateArray() {
+      // Create an array of fruits
+      let fruits = ["Apple", "Banana", "Cherry"];
+
+      // Display initial array and its length
+      document.getElementById("arrayContent").innerText = "Initial Array: " + fruits;
+      document.getElementById("arrayLength").innerText = "Array Length: " + fruits.length;
+
+      // Add a new fruit to the end (push method)
+      fruits.push("Dragonfruit");
+
+      // Remove the first fruit (shift method)
+      let removedFruit = fruits.shift();
+
+      // Sort the array alphabetically (sort method)
+      let sortedFruits = fruits.slice().sort(); // slice to clone before sorting
+
+      // Join array elements into a string (join method)
+      let fruitsString = fruits.join(", ");
+
+      // Display results after manipulation
+      document.getElementById("arrayContent").innerText += `\nAfter push and shift: ${fruits}`;
+      document.getElementById("arrayLength").innerText = "Array Length after manipulation: " + fruits.length;
+      document.getElementById("arraySorted").innerText = "Sorted Array: " + sortedFruits;
+      document.getElementById("arrayJoined").innerText = "Joined Array as String: " + fruitsString;
+    }
+  </script>
+
+</body>
+</html>

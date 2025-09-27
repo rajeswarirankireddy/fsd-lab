@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Math Object Example</title>
+</head>
+<body>
+
+  <h2>Math Object Demo</h2>
+
+  <button onclick="showMathResults()">Show Math Results</button>
+
+  <p id="results"></p>
+
+  <script>
+    function showMathResults() {
+      // Using Math properties
+      const pi = Math.PI;
+      const e = Math.E;
+
+      // Using Math methods
+      const num = 7.7;
+
+      const rounded = Math.round(num);
+      const floor = Math.floor(num);
+      const ceil = Math.ceil(num);
+      const sqrt = Math.sqrt(64);
+      const power = Math.pow(3, 4);
+      const randomNum = Math.random(); // between 0 and 1
+
+      // Display results
+      document.getElementById("results").innerHTML = `
+        <strong>Math.PI:</strong> ${pi} <br>
+        <strong>Math.E:</strong> ${e} <br>
+        <strong>Number:</strong> ${num} <br>
+        <strong>Math.round(${num}):</strong> ${rounded} <br>
+        <strong>Math.floor(${num}):</strong> ${floor} <br>
+        <strong>Math.ceil(${num}):</strong> ${ceil} <br>
+        <strong>Math.sqrt(64):</strong> ${sqrt} <br>
+        <strong>Math.pow(3, 4):</strong> ${power} <br>
+        <strong>Math.random():</strong> ${randomNum.toFixed(4)}
+      `;
+    }
+  </script>
+
+</body>
+</html>

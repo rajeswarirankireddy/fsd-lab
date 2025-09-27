@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User-defined Object Example</title>
+</head>
+<body>
+
+  <h2>User-defined Object Demo</h2>
+
+  <button onclick="createPerson()">Create and Display Person</button>
+
+  <pre id="output"></pre>
+
+  <script>
+    // Constructor function for Person
+    function Person(firstName, lastName, age) {
+      // Properties
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this._age = age; // Use underscore to indicate private-like property
+
+      // Method to display person's full name and age
+      this.display = function() {
+        return `Name: ${this.firstName} ${this.lastName}, Age: ${this.age}`;
+      };
+
+      // Accessor (getter) for age
+      Object.defineProperty(this, "age", {
+        get: function() {
+          return this._age;
+        },
+        set: function(value) {
+          if (value < 0 || value > 120) {
+            alert("Please enter a valid age between 0 and 120.");
+          } else {
+            this._age = value;
+          }
+        }
+      });
+    }
+
+    function createPerson() {
+      // Create a new Person object
+      const person1 = new Person("Alice", "Johnson", 28);
+
+      // Try changing age using setter
+      person1.age = 32;   // valid
+      person1.age = -5;   // invalid, will alert
+
+      // Display person info using the display method
+      document.getElementById("output").innerText = person1.display();
+    }
+  </script>
+
+</body>
+</html>

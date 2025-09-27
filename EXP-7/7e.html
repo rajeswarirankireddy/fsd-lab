@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>String Object Example</title>
+</head>
+<body>
+
+  <h2>String Methods Demo</h2>
+
+  <button onclick="manipulateString()">Manipulate String</button>
+
+  <p id="original"></p>
+  <p id="length"></p>
+  <p id="upper"></p>
+  <p id="lower"></p>
+  <p id="index"></p>
+  <p id="slice"></p>
+  <p id="replace"></p>
+  <p id="includes"></p>
+
+  <script>
+    function manipulateString() {
+      const str = "Hello, World! Welcome to JavaScript.";
+
+      // String length property
+      const length = str.length;
+
+      // Convert to uppercase
+      const upper = str.toUpperCase();
+
+      // Convert to lowercase
+      const lower = str.toLowerCase();
+
+      // Find index of "World"
+      const index = str.indexOf("World");
+
+      // Extract a substring using slice (from 7 to 12)
+      const sliced = str.slice(7, 12);
+
+      // Replace "World" with "Universe"
+      const replaced = str.replace("World", "Universe");
+
+      // Check if string includes "JavaScript"
+      const includesJS = str.includes("JavaScript");
+
+      // Display all results
+      document.getElementById("original").innerText = "Original String: " + str;
+      document.getElementById("length").innerText = "Length: " + length;
+      document.getElementById("upper").innerText = "Uppercase: " + upper;
+      document.getElementById("lower").innerText = "Lowercase: " + lower;
+      document.getElementById("index").innerText = 'Index of "World": ' + index;
+      document.getElementById("slice").innerText = "Slice (7,12): " + sliced;
+      document.getElementById("replace").innerText = 'Replace "World" with "Universe": ' + replaced;
+      document.getElementById("includes").innerText = 'Includes "JavaScript": ' + includesJS;
+    }
+  </script>
+
+</body>
+</html>
