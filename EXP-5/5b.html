@@ -1,51 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Background Image Halfway and Tilted</title>
-<style>
-  body {
-    margin: 0;
-    min-height: 200vh; /* tall page for scrolling */
-  }
+  <meta charset="UTF-8" />
+  <title>Full Background Watermark</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 200vh; /* make page scrollable */
+      font-family: Arial, sans-serif;
+      position: relative;
+    }
 
-  .bg-image {
-    position: fixed;
-    top: 50%; /* halfway down viewport */
-    left: 50%;
-    width: 500px;  /* width of background image */
-    height: 300px; /* height of background image */
-    background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    transform: translate(-50%, -50%) rotate(-20deg); /* center & tilt */
-    z-index: -1;
-    pointer-events: none;
-  }
+    .bg-image {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      transform: translate(-50%, -50%) rotate(-20deg); /* rotate for watermark effect */
+      opacity: 0.1; /* make it look like a watermark */
+      z-index: -1;
+      pointer-events: none; /* allows user to interact with content */
+    }
 
-  main {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
-</style>
+    main {
+      padding: 40px;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
 
-<div class="bg-image"></div>
+  <!-- Background watermark image -->
+  <div class="bg-image"></div>
 
-<main>
-  <h1>Page Content</h1>
-  <p>Scroll up and down and the background image stays fixed halfway down the viewport and tilted.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec dictum eros...</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec dictum eros...</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec dictum eros...</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec dictum eros...</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec dictum eros...</p>
-</main>
+  <!-- Page content -->
+  <main>
+    <h1>Page Content</h1>
+    <p>Scroll up and down — the watermark image stays fixed, full-screen, and tilted.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod, libero nec cursus suscipit...</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+  </main>
 
 </body>
 </html>
+
 
 
 
